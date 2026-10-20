@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Ilan Goldfein <ilan.goldfein@gmail.com>"]
+channels = ["https://prefix.dev/robostack-lyrical"]
+name = "ros_ws"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+ros-lyrical-desktop = ">=0.13.0,<0.14"
+ros-dev-tools = ">=1.0.3,<2"
