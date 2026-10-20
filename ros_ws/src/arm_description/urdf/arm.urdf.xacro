@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<!--
+  Stick-figure placeholder for the 5-DOF + gripper arm.
+
+  Every link is a plain cylinder or box so the kinematics, joint limits and
+  MoveIt setup can be tested before any CAD exists. When the Fusion export is
+  ready, swap the <visual>/<collision> geometry for meshes and keep the joint
+  names, frames and limits the same so the MoveIt config keeps working.
+
+  Zero pose: arm pointing straight up (+Z), gripper at the top.
+  Units: metres, radians, kilograms.
+-->
+<robot name="arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ===================== Dimensions (edit these) ===================== -->
+  <xacro:property name="base_height"       value="0.040"/>  <!-- table to base-yaw joint -->
+  <xacro:property name="turret_height"     value="0.070"/>  <!-- base-yaw joint to shoulder axis (total 110 mm) -->
+  <xacro:property name="upper_arm_length"  value="0.140"/>  <!-- shoulder to elbow -->
+  <xacro:property name="forearm_length"    value="0.120"/>  <!-- elbow to wrist pitch -->
+  <xacro:property name="wrist_length"      value="0.020"/>  <!-- wrist pitch to wrist roll -->
+  <xacro:property name="gripper_length"    value="0.025"/>  <!-- wrist roll to finger base -->
+  <xacro:property name="finger_length"     value="0.020"/>  <!-- finger base to fingertip -->
+  <!-- Wrist pitch to fingertip = 20 + 25 + 20 = 65 mm -->
+
+  <xacro:property name="base_radius"       value="0.060"/>
+  <xacro:property name="turret_radius"     value="0.035"/>
+  <xacro:property name="upper_arm_radius"  value="0.020"/>
+  <xacro:property name="forearm_radius"    value="0.018"/>
+  <xacro:property name="wrist_radius"      value="0.016"/>
+
+  <!-- ===================== Masses (servo = 0.055 kg) ===================== -->
+  <xacro:property name="base_mass"       value="0.500"/>  <!-- base, clamp, electronics -->
+  <xacro:property name="turret_mass"     value="0.150"/>  <!-- shoulder servo + big pulley -->
+  <xacro:property name="upper_arm_mass"  value="0.115"/>  <!-- link + elbow servo -->
+  <xacro:property name="forearm_mass"    value="0.105"/>  <!-- link + wrist pitch servo -->
+  <xacro:property name="wrist_mass"      value="0.085"/>  <!-- link + wrist roll servo -->
+  <xacro:property name="gripper_mass"    value="0.115"/>  <!-- gripper servo + body + camera -->
+  <xacro:property name="finger_mass"     value="0.010"/>
+
+  <!-- ===================== Joint limits ===================== -->
+  <!-- Shoulder range depends on belt ratio: 2:1 gives 180 deg, 3:1 gives 120 deg -->
+  <xacro:property name="shoulder_range_deg" value="180"/>
+  <xacro:property name="shoulder_ratio"     value="2.0"/>
+
+  <!-- STS3215 12 V: rated 10 kg*cm = 0.98 N*m, 0.222 s per 60 deg = 4.7 rad/s -->
+  <xacro:property name="servo_effort"   value="0.98"/>
+  <xacro:property name="servo_velocity" value="4.7"/>
+
+  <xacro:property name="deg" value="${pi/180}"/>
+
+  <!-- ===================== Materials ===================== -->
+  <material name="dark">   <color rgba="0.20 0.20 0.22 1.0"/></material>
+  <material name="grey">   <color rgba="0.62 0.64 0.67 1.0"/></material>
+  <material name="orange"> <color rgba="0.95 0.50 0.15 1.0"/></material>
+  <material name="blue">   <color rgba="0.20 0.45 0.85 1.0"/></material>
+  <material name="black">  <color rgba="0.05 0.05 0.05 1.0"/></material>
+
+  <!-- ===================== Macros ===================== -->
+
+  <!-- Solid-cylinder inertia, cylinder along its local Z, origin at its centre -->
+  <xacro:macro name="cylinder_inertial" params="mass radius length z_offset">
+    <inertial>
+      <origin xyz="0 0 ${z_offset}" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia ixx="${mass*(3*radius*radius + length*length)/12}" ixy="0" ixz="0"
+               iyy="${mass*(3*radius*radius + length*length)/12}" iyz="0"
+               izz="${mass*radius*radius/2}"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- Solid-box inertia, origin at its centre -->
+  <xacro:macro name="box_inertial" params="mass x y z z_offset">
+    <inertial>
+      <origin xyz="0 0 ${z_offset}" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia ixx="${mass*(y*y + z*z)/12}" ixy="0" ixz="0"
+               iyy="${mass*(x*x + z*z)/12}" iyz="0"
+               izz="${mass*(x*x + y*y)/12}"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- A link drawn as a cylinder running from its origin up +Z by `length` -->
+  <xacro:macro name="cylinder_link" params="name radius length mass material">
+    <link name="${name}">
+      <visual>
+        <origin xyz="0 0 ${length/2}" rpy="0 0 0"/>
+        <geometry><cylinder radius="${radius}" length="${length}"/></geometry>
+        <material name="${material}"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 ${length/2}" rpy="0 0 0"/>
+        <geometry><cylinder radius="${radius}" length="${length}"/></geometry>
+      </collision>
+      <xacro:cylinder_inertial mass="${mass}" radius="${radius}" length="${length}" z_offset="${length/2}"/>
+    </link>
+  </xacro:macro>
+
+  <!-- A visual-only "hub" drawn across a pitch joint so joints are easy to see -->
+  <xacro:macro name="joint_hub" params="parent radius width">
+    <link name="${parent}_hub">
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry><cylinder radius="${radius}" length="${width}"/></geometry>
+        <material name="dark"/>
+      </visual>
+    </link>
+    <joint name="${parent}_hub_fixed" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${parent}_hub"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- ===================== Links and joints ===================== -->
+
+  <!-- Base: fixed to the table -->
+  <xacro:cylinder_link name="base_link" radius="${base_radius}" length="${base_height}"
+                       mass="${base_mass}" material="dark"/>
+
+  <!-- Joint 1: base yaw -->
+  <xacro:cylinder_link name="turret_link" radius="${turret_radius}" length="${turret_height}"
+                       mass="${turret_mass}" material="grey"/>
+  <joint name="base_yaw" type="revolute">
+    <parent link="base_link"/>
+    <child link="turret_link"/>
+    <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${-160*deg}" upper="${160*deg}" effort="${servo_effort}" velocity="${servo_velocity}"/>
+  </joint>
+
+  <!-- Joint 2: shoulder pitch (belt-driven, ratio in shoulder_ratio) -->
+  <xacro:cylinder_link name="upper_arm_link" radius="${upper_arm_radius}" length="${upper_arm_length}"
+                       mass="${upper_arm_mass}" material="orange"/>
+  <joint name="shoulder_pitch" type="revolute">
+    <parent link="turret_link"/>
+    <child link="upper_arm_link"/>
+    <origin xyz="0 0 ${turret_height}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${-shoulder_range_deg/2*deg}" upper="${shoulder_range_deg/2*deg}"
+           effort="${servo_effort*shoulder_ratio}" velocity="${servo_velocity/shoulder_ratio}"/>
+  </joint>
+  <xacro:joint_hub parent="upper_arm_link" radius="0.030" width="0.060"/>
+
+  <!-- Joint 3: elbow pitch -->
+  <xacro:cylinder_link name="forearm_link" radius="${forearm_radius}" length="${forearm_length}"
+                       mass="${forearm_mass}" material="orange"/>
+  <joint name="elbow_pitch" type="revolute">
+    <parent link="upper_arm_link"/>
+    <child link="forearm_link"/>
+    <origin xyz="0 0 ${upper_arm_length}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${-140*deg}" upper="${140*deg}" effort="${servo_effort}" velocity="${servo_velocity}"/>
+  </joint>
+  <xacro:joint_hub parent="forearm_link" radius="0.025" width="0.050"/>
+
+  <!-- Joint 4: wrist pitch -->
+  <xacro:cylinder_link name="wrist_link" radius="${wrist_radius}" length="${wrist_length}"
+                       mass="${wrist_mass}" material="grey"/>
+  <joint name="wrist_pitch" type="revolute">
+    <parent link="forearm_link"/>
+    <child link="wrist_link"/>
+    <origin xyz="0 0 ${forearm_length}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${-100*deg}" upper="${100*deg}" effort="${servo_effort}" velocity="${servo_velocity}"/>
+  </joint>
+  <xacro:joint_hub parent="wrist_link" radius="0.020" width="0.044"/>
+
+  <!-- Joint 5: wrist roll -->
+  <link name="gripper_link">
+    <visual>
+      <origin xyz="0 0 ${gripper_length/2}" rpy="0 0 0"/>
+      <geometry><box size="0.050 0.024 ${gripper_length}"/></geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${gripper_length/2}" rpy="0 0 0"/>
+      <geometry><box size="0.050 0.024 ${gripper_length}"/></geometry>
+    </collision>
+    <xacro:box_inertial mass="${gripper_mass}" x="0.050" y="0.024" z="${gripper_length}" z_offset="${gripper_length/2}"/>
+  </link>
+  <joint name="wrist_roll" type="revolute">
+    <parent link="wrist_link"/>
+    <child link="gripper_link"/>
+    <origin xyz="0 0 ${wrist_length}" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${-160*deg}" upper="${160*deg}" effort="${servo_effort}" velocity="${servo_velocity}"/>
+  </joint>
+
+  <!-- Gripper fingers: one driven joint, the other mirrors it (mimic) -->
+  <xacro:macro name="finger" params="side">
+    <link name="finger_${side}_link">
+      <visual>
+        <origin xyz="0 0 ${finger_length/2}" rpy="0 0 0"/>
+        <geometry><box size="0.016 0.006 ${finger_length}"/></geometry>
+        <material name="black"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 ${finger_length/2}" rpy="0 0 0"/>
+        <geometry><box size="0.016 0.006 ${finger_length}"/></geometry>
+      </collision>
+      <xacro:box_inertial mass="${finger_mass}" x="0.016" y="0.006" z="${finger_length}" z_offset="${finger_length/2}"/>
+    </link>
+  </xacro:macro>
+
+  <xacro:finger side="left"/>
+  <xacro:finger side="right"/>
+
+  <joint name="gripper_left" type="prismatic">
+    <parent link="gripper_link"/>
+    <child link="finger_left_link"/>
+    <origin xyz="0 0.004 ${gripper_length}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.025" effort="20.0" velocity="0.05"/>
+  </joint>
+
+  <joint name="gripper_right" type="prismatic">
+    <parent link="gripper_link"/>
+    <child link="finger_right_link"/>
+    <origin xyz="0 -0.004 ${gripper_length}" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="0.0" upper="0.025" effort="20.0" velocity="0.05"/>
+    <mimic joint="gripper_left" multiplier="1.0" offset="0.0"/>
+  </joint>
+
+  <!-- Tool centre point: between the fingertips. Use this as MoveIt's end effector. -->
+  <link name="tool0"/>
+  <joint name="tool0_fixed" type="fixed">
+    <parent link="gripper_link"/>
+    <child link="tool0"/>
+    <origin xyz="0 0 ${gripper_length + finger_length}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Wrist camera: mounted on the side of the gripper body, looking along the fingers -->
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.023 0.042 0.042"/></geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.023 0.042 0.042"/></geometry>
+    </collision>
+    <xacro:box_inertial mass="0.030" x="0.023" y="0.042" z="0.042" z_offset="0"/>
+  </link>
+  <!-- camera_link X axis = viewing direction, rotated to point along +Z of the gripper -->
+  <joint name="camera_fixed" type="fixed">
+    <parent link="gripper_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0.040 0 ${gripper_length/2}" rpy="0 ${-pi/2} 0"/>
+  </joint>
+
+  <!-- Optical frame (Z forward, X right, Y down) used by camera drivers and image topics -->
+  <link name="camera_optical_frame"/>
+  <joint name="camera_optical_fixed" type="fixed">
+    <parent link="camera_link"/>
+    <child link="camera_optical_frame"/>
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+  </joint>
+
+</robot>

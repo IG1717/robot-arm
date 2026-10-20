@@ -103,7 +103,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/rosdep-0.26.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/rosdistro-1.1.0-pyhd8ed1ab_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/rospkg-1.6.3-pyh5ded981_0.conda
-      - conda: https://prefix.dev/conda-forge/noarch/setuptools-84.2.0-pyhe730653_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/setuptools-79.0.1-pyhff2d567_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/six-1.17.0-pyhe01879c_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/snowballstemmer-3.1.1-pyhd8ed1ab_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/toml-0.10.2-pyhcf101f3_3.conda
@@ -226,6 +226,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/osx-arm64/libdovi-3.4.0-hc336dc4_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libedit-3.1.20260512-pl5321h26f1114_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libev-4.33-h1a92334_3.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/libevent-2.1.12-h4b5715a_2.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libexpat-2.8.5-h6111c0a_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libffi-3.7.0-h47dc5ef_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libfreetype-2.14.3-hce30654_2.conda
@@ -284,6 +285,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/osx-arm64/libpython-3.14.8-h281bc5c_102_cp314.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libraqm-0.11.0-h45af499_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libraw-0.22.2-h2d05ff4_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/libre2-11-2025.11.05-h4c27e2a_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/librsvg-2.62.4-hc8ac265_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libsigtool-0.1.3-h98dc951_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/libsqlite-3.54.1-hca69786_0.conda
@@ -311,6 +313,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/osx-arm64/lz4-c-1.10.0-hdca3b7d_2.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/make-4.4.1-h63fc045_4.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/matplotlib-base-3.11.2-py314heb334b3_1.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/minizip-4.2.2-h6a11f2a_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/msgpack-python-1.2.3-py314hb1acb19_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/multidict-7.1.0-py314h538dc12_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/mypy-2.4.0-py314hd98292b_0.conda
@@ -346,16 +349,27 @@ environments:
       - conda: https://prefix.dev/conda-forge/osx-arm64/pygraphviz-2.0.4-py314h093f97e_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/pyqt6-6.11.0-py314ha630e2e_4.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/pyqt6-sip-13.13.0-py314ha630e2e_4.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/pyside6-6.11.1-py314h2cf4f08_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/python-3.14.8-h0ae1c2c_102_cp314.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/python-librt-0.16.0-py314hd98292b_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/python-orocos-kdl-1.5.4-py314h7eaf05a_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/pyyaml-6.0.3-py314h6e9b3f0_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/qhull-2020.2-h420ef59_5.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-3d-6.11.1-pl5321h09c3338_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-charts-6.11.1-pl5321h513545f_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-datavis3d-6.11.1-pl5321hf79ea98_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-graphs-6.11.1-pl5321h7cfde65_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-main-6.11.1-pl5321h7775a44_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-multimedia-6.11.1-pl5321h26d74f1_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-networkauth-6.11.1-pl5321h513545f_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-positioning-6.11.1-h4a521e9_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-quick3d-6.11.1-pl5321h36c6d0c_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-scxml-6.11.1-pl5321hc6445b9_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-sensors-6.11.1-pl5321h9fde2b9_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-serialport-6.11.1-hc2b3133_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-webengine-6.11.1-pl5321h2ef72fd_0.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/rav1e-0.8.1-h8246384_0.conda
+      - conda: https://prefix.dev/conda-forge/osx-arm64/re2-2025.11.05-ha480c28_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/readline-8.3-h8b90a29_1.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/rhash-1.4.6-h84a0fba_2.conda
       - conda: https://prefix.dev/conda-forge/osx-arm64/sdl2-2.32.56-h784d473_0.conda
@@ -506,6 +520,8 @@ environments:
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-image-transport-6.4.10-np2py314h1e5664e_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-interactive-markers-2.8.4-np2py314h1e5664e_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-intra-process-demo-0.37.8-np2py314h0b3730b_22.conda
+      - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-joint-state-publisher-2.4.2-np2py314h1e5664e_22.conda
+      - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-joint-state-publisher-gui-2.4.2-np2py314h1e5664e_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-joy-3.3.0-np2py314h1e5664e_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-kdl-parser-3.0.1-np2py314h1e5664e_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-keyboard-handler-0.5.1-np2py314h1e5664e_22.conda
@@ -703,6 +719,7 @@ environments:
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-urdfdom-6.0.0-py314hfdee681_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-urdfdom-headers-3.0.0-py314hfdee681_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-visualization-msgs-5.9.2-np2py314h1e5664e_22.conda
+      - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-xacro-2.1.1-np2py314h1e5664e_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-yaml-cpp-vendor-9.2.1-np2py314h1e5664e_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-zenoh-cpp-vendor-0.10.4-np2py314hfaa5aa4_22.conda
       - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-zstd-cmake-module-0.33.3-np2py314h1e5664e_22.conda
@@ -1768,16 +1785,16 @@ packages:
   run_exports: {}
   size: 32914
   timestamp: 1789833266234
-- conda: https://prefix.dev/conda-forge/noarch/setuptools-84.2.0-pyhe730653_0.conda
-  sha256: 173ef29160fbcc2839e0bc5e748518b104b402c2d1771ddb970b9bf442fcb532
-  md5: 0d93f3c61cea75a688e78826fe01e572
+- conda: https://prefix.dev/conda-forge/noarch/setuptools-79.0.1-pyhff2d567_0.conda
+  sha256: 5ebc4bb71fbdc8048b08848519150c8d44b8eb18445711d3258c9d402ba87a2c
+  md5: fa6669cc21abd4b7b6c5393b7bc71914
   depends:
-  - python >=3.11
+  - python >=3.9
   license: MIT
   license_family: MIT
   run_exports: {}
-  size: 567492
-  timestamp: 1792494591339
+  size: 787541
+  timestamp: 1745484086827
 - conda: https://prefix.dev/conda-forge/noarch/six-1.17.0-pyhe01879c_1.conda
   sha256: 458227f759d5e3fcec5d9b7acce54e10c9e1f4f4b7ec978f3bfd54ce4ee9853d
   md5: 3339e3b65d58accf4ca4fb8748ab16b3
@@ -3553,6 +3570,19 @@ packages:
     - libev >=4.33,<4.34.0a0
   size: 39991
   timestamp: 1785917376956
+- conda: https://prefix.dev/conda-forge/osx-arm64/libevent-2.1.12-h4b5715a_2.conda
+  sha256: 6dee15644c34e437920f1147974532cdcc039359b241b7eaa5fbdee275ec4621
+  md5: 9de672ef7d51541ea5176779bfc3e473
+  depends:
+  - __osx >=11.0
+  - openssl >=3.5.8,<4.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports:
+    weak:
+    - libevent >=2.1.12,<2.1.13.0a0
+  size: 369136
+  timestamp: 1788870250682
 - conda: https://prefix.dev/conda-forge/osx-arm64/libexpat-2.8.5-h6111c0a_0.conda
   sha256: 50aa761b83fc7a116ca88fe0cb4cefce5abababb10a926bf8afbafd5c298d102
   md5: 5383c550b785bdaafcc4eaf638071a7c
@@ -4451,6 +4481,23 @@ packages:
     - libraw >=0.22.2,<0.23.0a0
   size: 692346
   timestamp: 1784221114443
+- conda: https://prefix.dev/conda-forge/osx-arm64/libre2-11-2025.11.05-h4c27e2a_1.conda
+  sha256: 1e2d23bbc1ffca54e4912365b7b59992b7ae5cbeb892779a6dcd9eca9f71c428
+  md5: 40d8ad21be4ccfff83a314076c3563f4
+  depends:
+  - __osx >=11.0
+  - libabseil * cxx17*
+  - libabseil >=20260107.0,<20260108.0a0
+  - libcxx >=19
+  constrains:
+  - re2 2025.11.05.*
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports:
+    weak:
+    - libre2-11 >=2025.11.5
+  size: 165851
+  timestamp: 1768190225157
 - conda: https://prefix.dev/conda-forge/osx-arm64/librsvg-2.62.4-hc8ac265_0.conda
   sha256: 3bd54de0136907782249a0d5797744ecac5bbd77026f5f2712dd62390c5c9f77
   md5: 878c79beee628e3b683ddc9094aaad1e
@@ -4856,6 +4903,24 @@ packages:
   run_exports: {}
   size: 8961419
   timestamp: 1789824046629
+- conda: https://prefix.dev/conda-forge/osx-arm64/minizip-4.2.2-h6a11f2a_1.conda
+  sha256: a715db5100acebb66ec81748dc25f7a7d90be4568a6307a8077797e0f4fba931
+  md5: ce5e7144254351b224ac9d23ab0bddae
+  depends:
+  - __osx >=11.0
+  - libcxx >=21
+  - liblzma >=5.8.3,<6.0a0
+  - libiconv >=1.18,<2.0a0
+  - bzip2 >=1.0.8,<2.0a0
+  - openssl >=3.5.8,<4.0a0
+  - zstd >=1.5.7,<1.6.0a0
+  - libzlib >=1.3.2,<2.0a0
+  license: Zlib
+  run_exports:
+    weak:
+    - minizip >=4.2.2,<5.0a0
+  size: 501152
+  timestamp: 1788896824894
 - conda: https://prefix.dev/conda-forge/osx-arm64/msgpack-python-1.2.3-py314hb1acb19_0.conda
   sha256: 986f8f565f3325c59bc3d8978acd4e9eacab04d0af4f7ac304f01d6d2f947c91
   md5: 8ae2de5c58175d1565f59dc63e53f82e
@@ -5368,6 +5433,25 @@ packages:
   run_exports: {}
   size: 69821
   timestamp: 1791387252625
+- conda: https://prefix.dev/conda-forge/osx-arm64/pyside6-6.11.1-py314h2cf4f08_1.conda
+  sha256: 3df74b25484c91d3dfa71a58f31677494bd89ffaa31c0a54aee7d193629aeb02
+  md5: c838edfb1fbb103bdc23df950aaad819
+  depends:
+  - python
+  - qt6-main 6.11.1.*
+  - __osx >=11.0
+  - libcxx >=19
+  - python_abi 3.14.* *_cp314
+  - libclang13 >=19.1.7
+  - libxslt >=1.1.43,<2.0a0
+  - libxml2
+  - libxml2-16 >=2.14.6
+  - qt6-main >=6.11.1,<6.12.0a0
+  license: LGPL-3.0-only
+  license_family: LGPL
+  run_exports: {}
+  size: 15977763
+  timestamp: 1778934240976
 - conda: https://prefix.dev/conda-forge/osx-arm64/python-3.14.8-h0ae1c2c_102_cp314.conda
   build_number: 102
   sha256: b8e5729761450f22fd591af7e565af02112a4dc0fa21717519c4f06c59ee6781
@@ -5455,6 +5539,69 @@ packages:
     - qhull >=2020.2,<2020.3.0a0
   size: 516376
   timestamp: 1720814307311
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-3d-6.11.1-pl5321h09c3338_0.conda
+  sha256: 3facda51e2ea150c1d189723da15e35dde17c3cd515ed8a31502787b862d4f25
+  md5: 5d08e18a8d036e4cd7ad075c3df2ffb0
+  depends:
+  - qt6-main 6.11.1.*
+  - __osx >=11.0
+  - libcxx >=19
+  - assimp >=6.0.5,<7.0a0
+  - libzlib >=1.3.2,<2.0a0
+  - qt6-main >=6.11.1,<6.12.0a0
+  license: LGPL-3.0-only
+  license_family: LGPL
+  run_exports:
+    weak:
+    - qt6-3d >=6.11.1,<6.12.0a0
+  size: 2884493
+  timestamp: 1778675882581
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-charts-6.11.1-pl5321h513545f_0.conda
+  sha256: 9ca902c7e462d10a9ef1bcfbf36ebcbf533b41247021744a042a956584641f34
+  md5: 288b5951ab00d695173f946508049921
+  depends:
+  - qt6-main 6.11.1.*
+  - __osx >=11.0
+  - libcxx >=19
+  - qt6-main >=6.11.1,<6.12.0a0
+  license: GPL-3.0-only
+  license_family: GPL
+  run_exports:
+    weak:
+    - qt6-charts >=6.11.1,<6.12.0a0
+  size: 796201
+  timestamp: 1778675943557
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-datavis3d-6.11.1-pl5321hf79ea98_0.conda
+  sha256: c6035992deea0bc024d954a3271aae360aeb00cada3715fcd8f62c96b2cfc4ec
+  md5: 48a052e904a730d2de037c5a4a7541e5
+  depends:
+  - qt6-main 6.11.1.*
+  - libcxx >=21
+  - __osx >=11.0
+  - qt6-main >=6.11.1,<7.0a0
+  license: GPL-3.0-only
+  license_family: GPL
+  run_exports:
+    weak:
+    - qt6-datavis3d >=6.11.1,<6.12.0a0
+  size: 657820
+  timestamp: 1786971224392
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-graphs-6.11.1-pl5321h7cfde65_0.conda
+  sha256: 0a28852e1a23c3313e3dba679cc06c07a1a085a156bb1bb234ab9c2736e4320c
+  md5: 82c7032c23e6dd4449f2ee2147f82a5c
+  depends:
+  - qt6-main 6.11.1.*
+  - __osx >=11.0
+  - libcxx >=21
+  - qt6-quick3d >=6.11.1,<6.12.0a0
+  - qt6-main >=6.11.1,<7.0a0
+  license: GPL-3.0-only
+  license_family: GPL
+  run_exports:
+    weak:
+    - qt6-graphs >=6.11.1,<6.12.0a0
+  size: 1035973
+  timestamp: 1786963939230
 - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-main-6.11.1-pl5321h7775a44_1.conda
   sha256: 84e8269f5bff6e167729cfe419f13551dc9a66af0e7af1038965a360c6965663
   md5: be311a46235aee60eb710d6d90fcc469
@@ -5504,6 +5651,21 @@ packages:
     - qt6-multimedia >=6.11.1,<6.12.0a0
   size: 2142550
   timestamp: 1778676587313
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-networkauth-6.11.1-pl5321h513545f_0.conda
+  sha256: 5d3264fd3722e16bd9f6e0c7acf8d15b8947f87a78d381188ee4e2fa9e25d8c3
+  md5: 00c569ab8d186bb2acb922890627e77f
+  depends:
+  - qt6-main 6.11.1.*
+  - libcxx >=19
+  - __osx >=11.0
+  - qt6-main >=6.11.1,<6.12.0a0
+  license: GPL-3.0-only
+  license_family: GPL
+  run_exports:
+    weak:
+    - qt6-networkauth >=6.11.1,<6.12.0a0
+  size: 162926
+  timestamp: 1778639266907
 - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-positioning-6.11.1-h4a521e9_0.conda
   sha256: 34c90bd76cdd8a8763c7a73097e5b00545a61e29dbdcfd91660f2ed791b2d8d5
   md5: 6cd229686b46752ba101c56270a246a3
@@ -5518,6 +5680,52 @@ packages:
     - qt6-positioning >=6.11.1,<6.12.0a0
   size: 454244
   timestamp: 1781579114330
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-quick3d-6.11.1-pl5321h36c6d0c_0.conda
+  sha256: 6a0934300520596c78582eb5f0d3c90aa1d6e7e87c5b6bcbc6f572596cc48c32
+  md5: 61be74d13934e4594425d6fdd1949562
+  depends:
+  - qt6-main 6.11.1.*
+  - __osx >=11.0
+  - libcxx >=21
+  - libzlib >=1.3.2,<2.0a0
+  - qt6-main >=6.11.1,<7.0a0
+  license: GPL-3.0-only
+  license_family: GPL
+  run_exports:
+    weak:
+    - qt6-quick3d >=6.11.1,<6.12.0a0
+  size: 8540239
+  timestamp: 1786964930975
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-scxml-6.11.1-pl5321hc6445b9_0.conda
+  sha256: d9ccf63cdb196d4307c3b94381e5d1be817c9ced689860ca7220c03e3a03a8d3
+  md5: a45b291c861e89e887d13e1d23ff45de
+  depends:
+  - qt6-main 6.11.1.*
+  - __osx >=11.0
+  - libcxx >=21
+  - qt6-main >=6.11.1,<7.0a0
+  license: GPL-3.0-only
+  license_family: GPL
+  run_exports:
+    weak:
+    - qt6-scxml >=6.11.1,<6.12.0a0
+  size: 513508
+  timestamp: 1787069942116
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-sensors-6.11.1-pl5321h9fde2b9_0.conda
+  sha256: 3b898b9c5c6f0fea55f97bd1778a1b9056ab509f4743e78fc1281795cccd4e39
+  md5: 875b62ce75473fb0c6ee9e8c8a560518
+  depends:
+  - qt6-main 6.11.1.*
+  - __osx >=11.0
+  - libcxx >=19
+  - qt6-main >=6.11.1,<6.12.0a0
+  license: GPL-3.0-only
+  license_family: GPL
+  run_exports:
+    weak:
+    - qt6-sensors >=6.11.1,<6.12.0a0
+  size: 219460
+  timestamp: 1778746209252
 - conda: https://prefix.dev/conda-forge/osx-arm64/qt6-serialport-6.11.1-hc2b3133_0.conda
   sha256: 6b8cf98eb56703612b1b435686f6cd827e7cf8d72ad7391c1f98ee66fa9e3bf9
   md5: b3aa2cdaa6c1045f38436c3c3c4065be
@@ -5532,6 +5740,41 @@ packages:
     - qt6-serialport >=6.11.1,<6.12.0a0
   size: 99207
   timestamp: 1778751688271
+- conda: https://prefix.dev/conda-forge/osx-arm64/qt6-webengine-6.11.1-pl5321h2ef72fd_0.conda
+  sha256: dba4081c71ffedbb32efb507db6c915d88bd3aa298077bb411da26b888dbf665
+  md5: 882d93f47f3b3b525e2c09ac95adfe8f
+  depends:
+  - qt6-main 6.11.1.*
+  - libcxx >=19
+  - __osx >=11.0
+  - lcms2 >=2.19.1,<3.0a0
+  - openjpeg >=2.5.4,<3.0a0
+  - libpng >=1.6.58,<1.7.0a0
+  - libzlib >=1.3.2,<2.0a0
+  - harfbuzz >=14.2.0
+  - libxml2
+  - libxml2-16 >=2.14.6
+  - minizip >=4.2.1,<5.0a0
+  - libtiff >=4.7.1,<4.8.0a0
+  - libxslt >=1.1.43,<2.0a0
+  - qt6-main >=6.11.1,<6.12.0a0
+  - libfreetype >=2.14.3
+  - libfreetype6 >=2.14.3
+  - snappy >=1.2.2,<1.3.0a0
+  - libopus >=1.6.1,<2.0a0
+  - libre2-11 >=2025.11.5
+  - re2
+  - spirv-tools >=2026,<2027.0a0
+  - libvpx >=1.15.2,<1.16.0a0
+  - libglib >=2.88.1,<3.0a0
+  - libevent >=2.1.12,<2.1.13.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports:
+    weak:
+    - qt6-webengine >=6.11.1,<6.12.0a0
+  size: 89787547
+  timestamp: 1778765965543
 - conda: https://prefix.dev/conda-forge/osx-arm64/rav1e-0.8.1-h8246384_0.conda
   sha256: 925e35b71fe513e0380ecd2fe137e3f4f248bf7ce4bad96946c7c704b7a50d26
   md5: 4706a8a71474c692482c3f86c2175454
@@ -5546,6 +5789,19 @@ packages:
     - rav1e >=0.8.1,<0.9.0a0
   size: 886953
   timestamp: 1772541394570
+- conda: https://prefix.dev/conda-forge/osx-arm64/re2-2025.11.05-ha480c28_1.conda
+  sha256: 5bab972e8f2bff1b5b3574ffec8ecb89f7937578bd107584ed3fde507ff132f9
+  md5: a1ff22f664b0affa3de712749ccfbf04
+  depends:
+  - libre2-11 2025.11.05 h4c27e2a_1
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports:
+    weak:
+    - libre2-11 >=2025.11.5
+    - re2
+  size: 27445
+  timestamp: 1768190259003
 - conda: https://prefix.dev/conda-forge/osx-arm64/readline-8.3-h8b90a29_1.conda
   sha256: d6782b430e6dce4fe8c7ac118cd988d5a193eb4a7f60741edfaede58016b6110
   md5: 9347fd56a002e6b58946831d48fe62f6
@@ -8300,6 +8556,47 @@ packages:
   run_exports: {}
   size: 368405
   timestamp: 1782788282191
+- conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-joint-state-publisher-2.4.2-np2py314h1e5664e_22.conda
+  sha256: 14bf4f4a68dfc89e900893191a6b90e03a394f93a00a82587b32677f5991a644
+  md5: 89d94381dcd2f087ad4481c9c986954f
+  attestations_sha256: b7019564ffe9604608559c2e70846be17989ce4b05ee3b5a43c6e1af1246e9d3
+  depends:
+  - packaging
+  - python
+  - ros-lyrical-rclpy
+  - ros-lyrical-ros-workspace
+  - ros-lyrical-sensor-msgs
+  - ros-lyrical-std-msgs
+  - ros2-distro-mutex 0.18.* lyrical_*
+  - libcxx >=18
+  - __osx >=11.0
+  - python_abi 3.14.* *_cp314
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.18.0,<0.19.0a0
+  license: BSD-3-Clause
+  run_exports: {}
+  size: 51607
+  timestamp: 1782788683405
+- conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-joint-state-publisher-gui-2.4.2-np2py314h1e5664e_22.conda
+  sha256: 965b746ba0f09783ae5e96a43e818664daaf938081d19f96c91a0c27185eca4b
+  md5: dbf59fa39fbc76cf996e56ed7cf1ed92
+  attestations_sha256: b1513ad4fa0ff65aadb64b8ed52e16e5f7bb578a702e3b0b672bf1fc54663175
+  depends:
+  - python
+  - ros-lyrical-joint-state-publisher
+  - ros-lyrical-python-qt-binding
+  - ros-lyrical-rclpy
+  - ros-lyrical-ros-workspace
+  - ros2-distro-mutex 0.18.* lyrical_*
+  - __osx >=11.0
+  - libcxx >=18
+  - numpy >=1.25,<3
+  - python_abi 3.14.* *_cp314
+  - ros2-distro-mutex >=0.18.0,<0.19.0a0
+  license: BSD-3-Clause
+  run_exports: {}
+  size: 30028
+  timestamp: 1782789663716
 - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-joy-3.3.0-np2py314h1e5664e_22.conda
   sha256: 1681e93cb02723c2b0c356cc9d3580f1c92b439e8355c8641ced241521cb3643
   md5: 4cc8e635f6e789bea66b5f632ac276f8
@@ -12795,6 +13092,25 @@ packages:
   run_exports: {}
   size: 356523
   timestamp: 1782737451240
+- conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-xacro-2.1.1-np2py314h1e5664e_22.conda
+  sha256: bc2aa22ccbfdf2a0bd007ec38e4143486e56ff05d3e30ec79e204e30a2d56b2c
+  md5: 1a39f1de9459395b8a51ca3c1f8a7b79
+  attestations_sha256: 73d49d3c0787ce33387db3e899cef7918fea8bc0994c53392cbdf7322484f40d
+  depends:
+  - python
+  - pyyaml
+  - ros-lyrical-ament-index-python
+  - ros-lyrical-ros-workspace
+  - ros2-distro-mutex 0.18.* lyrical_*
+  - libcxx >=18
+  - __osx >=11.0
+  - python_abi 3.14.* *_cp314
+  - ros2-distro-mutex >=0.18.0,<0.19.0a0
+  - numpy >=1.25,<3
+  license: BSD-3-Clause
+  run_exports: {}
+  size: 78171
+  timestamp: 1782733339835
 - conda: https://prefix.dev/robostack-lyrical/osx-arm64/ros-lyrical-yaml-cpp-vendor-9.2.1-np2py314h1e5664e_22.conda
   sha256: 49ab448d80039cdfc49105427a1db90f5d1827c8dd8469ecce7e49149c61a182
   md5: dc5be866cbfb0335e05066b4b61a0f56
